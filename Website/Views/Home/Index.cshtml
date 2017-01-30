@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Azure Automation Example</h2>
+        @if (ViewData["JobId"] == null)
+        {
+            <form action="/Home/Index" method="post">
+                <div class="form-group">
+                    <label for="alias">User alias</label>
+                    <input type="text" class="form-control" name="alias" id="alias" placeholder="User alias">
+                </div>
+                <div class="form-group">
+                    <label for="alias">License type</label>
+                    <input type="text" class="form-control" name="license" id="license" placeholder="License type">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        } else {
+            <p>Your job has been submitted to Azure Automation! The job ID is @ViewData["JobId"]</p>
+        }
+    </div>
+</div>
