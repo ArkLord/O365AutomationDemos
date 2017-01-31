@@ -24,7 +24,7 @@ namespace WebApplicationBasic.Controllers
        [HttpPost]
         public IActionResult Index(string alias, string license)
         {
-            ViewData["JobId"] = WebhookManager.ExecuteWebhook(WebhookManagerObject.Value.WebhookUrl);
+            ViewData["JobId"] = WebhookManager.ExecuteWebhook(WebhookManagerObject.Value.WebhookUrl, alias, license);
             return View();
         }
 

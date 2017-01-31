@@ -1,11 +1,11 @@
-$uri = "https://s3events.azure-automation.net/webhooks?token=C6ly%2fuW%2fUq4vcboi0NO7DHOmTYWM0ZCH3XOTOG4%2bD1s%3d"
-$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
+$uri = "https://s3events.azure-automation.net/webhooks?token=rDt4ODcsFSgtoT6xtK9Bnq%2bgtkFXTD8CD9gFRVU5Rqw%3d"
+$headers = @{"From"="brian.farnhill@contoso.com";"Date"=[DateTime]::Now.ToString("MM/dd/yyyy hh:mm:ss")}
 
-$vms  = @(
-            @{ Name="vm01";ServiceName="vm01"},
-            @{ Name="vm02";ServiceName="vm02"}
-        )
-$body = ConvertTo-Json -InputObject $vms
+$details  = @{
+    alias = "jeffh"
+    license = "MOD272526:ENTERPRISEPREMIUM"
+}
+$body = ConvertTo-Json -InputObject $details
 
 $response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
 $jobid = $response.JobIds

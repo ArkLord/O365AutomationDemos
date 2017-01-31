@@ -12,8 +12,19 @@
                     <input type="text" class="form-control" name="alias" id="alias" placeholder="User alias">
                 </div>
                 <div class="form-group">
-                    <label for="alias">License type</label>
-                    <input type="text" class="form-control" name="license" id="license" placeholder="License type">
+                    <label for="license">License type</label>
+                    <div class="radio">
+                    <label>
+                        <input type="radio" name="license" id="license1" value="MOD272526:ENTERPRISEPREMIUM" checked>
+                        E3 License
+                    </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="license" id="license2" value="MOD272526:AAD_PREMIUM_P2">
+                        AAD Premium License
+                    </label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

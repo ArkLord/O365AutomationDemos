@@ -9,16 +9,16 @@ namespace WebApplicationBasic
     {
         public string WebhookUrl { get; set; }
 
-        public static string ExecuteWebhook(string url)
+        public static string ExecuteWebhook(string url, string alias, string license)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
-            request.Headers["From"] = "user@contoso.com";
+            request.Headers["From"] = "brian.farnhill@contoso.com";
             request.Headers["Date"] = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss");
             using (Stream requestStream = request.GetRequestStreamAsync().Result)
             using (var writer = new StreamWriter(requestStream))
             {
-                writer.Write("[{'Name':  'vm01', 'ServiceName':  'vm01' },{'Name':  'vm02','ServiceName':  'vm02'}]");
+                writer.Write(string.Format("{{\"alias\": \"{0}\", \"license\": \"{1}\"}}", alias, license));
             }
 
             WebResponse response = request.GetResponseAsync().Result;
